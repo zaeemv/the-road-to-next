@@ -6,25 +6,31 @@ import { TicketList } from "@/features/ticket/components/ticket-list";
 
 import CardCompact from "@/components/card-compact";
 import TicketUpsertForm from "@/features/ticket/components/ticket-upsert-form";
+import { RedirectToast } from "@/components/redirect-toast";
 
 const TicketsPage = () => {
 
   return (
-    <div className="flex-1 flex flex-col gap-y-8">
-      <Heading title="Tickets" description="All your tickets in one place" />
-      
-      <CardCompact
-        title="Create Ticket"
-        description="Create a new ticket"
-        className="w-full max-w-[420px] self-center"
-        content={<TicketUpsertForm />}
-      />
+    <>
+      <div className="flex-1 flex flex-col gap-y-8">
+        <Heading title="Tickets" description="All your tickets in one place" />
 
-      <Suspense fallback={<Spinner />}>
-        <TicketList />
-      </Suspense>
+        <CardCompact
+          title="Create Ticket"
+          description="Create a new ticket"
+          className="w-full max-w-[420px] self-center"
+          content={<TicketUpsertForm />}
+        />
 
-    </div>
+        <Suspense fallback={<Spinner />}>
+          <TicketList />
+        </Suspense>
+
+
+
+      </div>
+      <RedirectToast />
+    </>
   )
 }
 
