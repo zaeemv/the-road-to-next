@@ -29,7 +29,6 @@ const TicketsPage = () => {
 
 
       </div>
-      <RedirectToast />
     </>
   )
 }

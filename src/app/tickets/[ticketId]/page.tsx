@@ -27,7 +27,6 @@ const TicketPage = async ({ params }: TicketPageProps) => {
       <div className="flex justify-center animate-fade-in-from-top">
         <TicketItem ticket={ticket} isDetail />
       </div>
-      <RedirectToast />
     </>
   )
 }
