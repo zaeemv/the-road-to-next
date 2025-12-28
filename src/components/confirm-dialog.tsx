@@ -27,9 +27,9 @@ const ConfirmDialog = ({
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
                     <AlertDialogAction asChild>
-
-                        <Button type="submit">Confirm</Button>
-
+                        <form action={action}>
+                            <Button type="submit">Confirm</Button>
+                        </form>
                     </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
