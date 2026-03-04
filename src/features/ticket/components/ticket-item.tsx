@@ -19,7 +19,6 @@ import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { TicketMoreMenu } from "./ticket-more-menu";
-import { ConfirmDialog } from "@/components/confirm-dialog";
 
 type TicketItemProps = {
     ticket: Ticket;
@@ -43,14 +42,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
         </Button>
     )
 
-    const deleteButton = (<ConfirmDialog
-        action={deleteTicket.bind(null, ticket.id)}
-        trigger={
-            <Button variant="outline" size="icon">
-                <LucideTrash className="h-4 w-4" />
-            </Button>
-        }
-    />)
+    
 
     const moreMenu = <TicketMoreMenu ticket={ticket} trigger={
         <Button variant="outline" size="icon">
@@ -91,7 +83,7 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
                     (
                         <>
                             {moreMenu}
-                            {deleteButton}
+                            {editButton}
                         </>
                     ) : (
                         <>
