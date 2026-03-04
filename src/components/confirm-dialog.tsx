@@ -1,8 +1,11 @@
-import { cloneElement, useState } from "react";
-import { ActionState } from "./form/utils/to-action-state";
+import { cloneElement, useActionState, useState } from "react";
+import { ActionState, EMPTY_ACTION_STATE } from "./form/utils/to-action-state";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "./ui/alert-dialog";
 import { Button } from "./ui/button";
 import { clone } from "zod";
+import { Form } from "./form/form";
+import { Sub } from "@radix-ui/react-dropdown-menu";
+import { SubmitButton } from "./form/submit-button";
 
 type useConfirmDialogProps = {
     title?: string;
@@ -23,6 +26,12 @@ const useConfirmDialog = ({
         onClick: () => setIsOpen(state => !state)
     });
 
+    const [actionState, formAction] = useActionState(action, EMPTY_ACTION_STATE);
+
+    const handleSuccess = () => {
+        setIsOpen(false);
+    }
+
     const dialog = (
         <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
             <AlertDialogContent >
@@ -34,7 +43,13 @@ const useConfirmDialog = ({
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
                     <AlertDialogAction asChild>
-                        <Button onClick={action} variant="destructive">Continue</Button>
+                        <Form
+                            action={formAction}
+                            actionState={actionState}
+                            onSuccess={handleSuccess}
+                        >
+                            <SubmitButton label="Confirm" />
+                        </Form>
                     </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
