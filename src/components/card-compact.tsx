@@ -8,7 +8,7 @@ type CartCompactProps = {
     footer?: React.ReactNode;
 }
 
-const CardCompact = ({title, description, content, className, footer}: CartCompactProps) => {
+const CardCompact = ({title, description, content, footer}: CartCompactProps) => {
     return (
         <Card className="w-full max-w-[420px] self-center">
             <CardHeader>

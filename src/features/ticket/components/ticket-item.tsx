@@ -1,7 +1,7 @@
 /* eslint-disable simple-import-sort/imports */
 
 import clsx from "clsx";
-import { LucideArrowUpRightFromSquare, LucideMoreVertical, LucidePencil, LucideSquareArrowOutUpRight, LucideTrash } from "lucide-react";
+import { LucideMoreVertical, LucidePencil, LucideSquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,6 @@ import {
 import { ticketEditPath, ticketPath } from "@/paths";
 
 import { Ticket } from "@prisma/client";
-import { deleteTicket } from "../actions/delete-ticket";
 import { TICKET_ICONS } from "../constants";
 import { toCurrencyFromCent } from "@/utils/currency";
 import { TicketMoreMenu } from "./ticket-more-menu";
