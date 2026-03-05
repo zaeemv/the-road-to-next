@@ -5,9 +5,9 @@ import TicketUpsertForm from "@/features/ticket/components/ticket-upsert-form";
 import { getTicket } from "@/features/ticket/queries/get-ticket";
 
 type TicketEditPageProps = {
-    params: {
+    params: Promise<{
         ticketId: string;
-    };
+    }>;
 };
 
 const TicketEditPage = async ({params}: TicketEditPageProps) => {
