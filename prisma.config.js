@@ -1,7 +1,6 @@
-export default {
+module.exports = {
   datasources: {
     db: {
-      // Use DIRECT_URL for migrations
       url: process.env.DIRECT_URL,
     },
   },
