@@ -5,7 +5,23 @@ generator client {
 datasource db {
     provider  = "postgresql"
     url       = env("DATABASE_URL")
-    directUrl = env("DIRECT_URL")
+}
+
+model User {
+    id        String       @id @default(cuid())
+    username  String       @unique
+    email     String       @unique
+    passwordHash String
+    sessions  Session[]
+}
+
+model Session {
+    id String @id
+    expiresAt DateTime
+    userId String
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
 }
 
 model Ticket {
