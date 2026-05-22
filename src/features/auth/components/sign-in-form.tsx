@@ -2,31 +2,25 @@
 
 import { SubmitButton } from "@/components/form/submit-button";
 import { Input } from "@/components/ui/input";
-import { signUp } from "../actions/sign-up";
 import { useActionState } from "react";
 import { Form } from "@/components/form/form";
 import { EMPTY_ACTION_STATE } from "@/components/form/utils/to-action-state";
 import FieldError from "@/components/form/field-error";
+import { signIn } from "../actions/sign-in";
 
-const SignUpForm = () => {
-    const [actionState, action] = useActionState(signUp, EMPTY_ACTION_STATE)
+const SignInForm = () => {
+    const [actionState, action] = useActionState(signIn, EMPTY_ACTION_STATE)
     return (
         <Form action={action} actionState={actionState}>
-            <Input name="username" placeholder="Username" />
-            <FieldError name="username" actionState={actionState} />
-
             <Input name="email" placeholder="Email" />
             <FieldError name="email" actionState={actionState} />
 
             <Input name="password" placeholder="Password" type="password" />
             <FieldError name="password" actionState={actionState} />
 
-            <Input name="confirmPassword" placeholder="Confirm Password" type="password" />
-            <FieldError name="confirmPassword" actionState={actionState} />
-
-            <SubmitButton label="Sign Up" />
+            <SubmitButton label="Sign In" />
         </Form>
     )
 }
 
-export { SignUpForm };
+export { SignInForm };
